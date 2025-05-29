@@ -80,7 +80,7 @@ $shell\
 $character"""
 
 [kubernetes]
-format = 'on [⛵  $cluster \($namespace\)](dimmed green) '
+format = 'on [󱃾  $cluster \($namespace\)](dimmed green) '
 disabled = false
 
 [gcloud]

@@ -48,7 +48,7 @@
     "interval": 3600
   },
   "custom/miniflux": {
-    "exec": "~/go/bin/miniflux --url https://miniflux.hoohoot.org --token 6aQYGv7zC83mLBQAqjWzt5mKLRsVwa0HH62NfdMww5k=",
+    "exec": "~/go/bin/miniflux --url https://miniflux.hoohoot.org --token {{ (vault "perso/common").data.data.miniflux_token }}=",
     "format": "{} \uf09e",
     "tooltip": true,
     "return-type": "json",
