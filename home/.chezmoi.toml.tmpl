@@ -1,0 +1,5 @@
+{{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
+
+[data]
+isWorkComputer = {{ $isWorkComputer }}
+
