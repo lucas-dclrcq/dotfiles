@@ -1,0 +1,41 @@
+
+# audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | head -n 1 | awk '{print substr($5, 1, length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Screen backlight
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty
+
+# launcher
+bindsym $mod+d exec ~/.cargo/bin/onagre
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# take cropped screenshot
+bindsym Shift+Print exec ~/.scripts/screenshot.sh cropped
+
+# take focused window screenshot
+bindsym Print exec ~/.dotfiles/scripts/screenshot.sh fullscreen
+
+# Lock screen
+bindsym $mod+l exec ~/.scripts/lockscreen.sh
+
+# Do updates
+bindsym $mod+x+p exec ~/.scripts/do-updates.sh
+
+# toggle notification control center
+bindsym $mod+Shift+n exec swaync-client -t -sw

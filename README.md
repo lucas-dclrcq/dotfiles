@@ -1,0 +1,7 @@
+# Dotfiles
+
+## Init
+
+### Linux
+
+### MacOS

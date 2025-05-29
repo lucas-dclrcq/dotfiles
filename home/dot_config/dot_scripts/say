@@ -1,0 +1,2 @@
+#!/bin/sh
+mpg123 ~/.dots/assets/mob_next.mp3

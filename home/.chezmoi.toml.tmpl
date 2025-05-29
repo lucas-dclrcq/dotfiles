@@ -1,5 +1,9 @@
-{{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
+{{- $profiles := list "personal" "work" -}}
+{{- $profile := promptChoice "What profile to enable" $profiles -}}
 
 [data]
-isWorkComputer = {{ $isWorkComputer }}
+name = "{{ (vault "perso/common").data.data.name }}"
+email = "{{ (vault "perso/common").data.data.email }}"
 
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/.install-password-manager.sh"

@@ -1,0 +1,48 @@
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+	signingkey = ~/.ssh/id_rsa
+[core]
+	editor = vim
+	excludesfile = ~/.gitexcludes
+	autocrlf = input
+[init]
+    defaultBranch = main
+[gpg]
+    format = ssh
+[color]
+    ui = true
+[alias]
+    # Show all branches with their creator, sorted by date
+    br = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+    reorder = "!GIT_SEQUENCE_EDITOR=\"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+    l = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+    ll = "log --decorate --stat --graph --pretty=format:\"%d %Cgreen%h%Creset (%ar - %Cred%an%Creset), %s%n\""
+    sc = "remote prune origin --dry-run"
+    dc = "remote prune origin"
+    pushf = "push --force-with-lease" 
+[pull]
+    rebase = true
+    default = current
+[push]
+    # Push the current branch to a branch of the same name
+    default = current
+    autoSetupRemote = true
+[commit]
+    gpgsign = true
+[merge]
+    ff = only
+    renormalize = true
+    tool = vimmergetool
+    conflictstyle = diff3
+[rebase]
+    autosquash = true
+    autoStash = true
+[fetch]
+    prune = true
+[status]
+    showUntrackedFiles = all
+[rerere]
+    enabled = 1
+[url "ssh://git@github.com/"]
+  pushInsteadOf = https://github.com/

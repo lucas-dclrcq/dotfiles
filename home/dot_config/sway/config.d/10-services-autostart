@@ -1,0 +1,20 @@
+bar {
+     swaybar_command waybar
+}
+
+# Nextcloud Background Client
+exec --no-startup-id nextcloud
+
+# Sway IDLE
+exec swayidle
+
+# Sway Notification Center
+exec swaync
+
+# GOA
+exec /usr/lib/goa-daemon --replace
+exec gnome-next-meeting-applet
+
+# Wob
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob

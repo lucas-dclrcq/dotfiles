@@ -1,0 +1,158 @@
+{
+  "output": "HDMI-A-1",
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "modules-left": [
+    "disk",
+    "cpu",
+    "memory",
+    "temperature#cpu",
+    "temperature#gpu",
+    "network",
+    "idle_inhibitor"
+  ],
+  "modules-center": [
+    "sway/workspaces"
+  ],
+  "modules-right": [
+    "custom/notification",
+    "custom/gnma",
+    "custom/updates",
+    "custom/miniflux",
+    "custom/weather",
+    "pulseaudio",
+    "clock"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "disable-markup": false,
+    "all-outputs": true,
+    "format": "  {icon}  ",
+    "format-icons": {
+      "1": "\uF2B6",
+      "2": "<span font='18'>\uF120</span>",
+      "3": "\uE007",
+      "4": "\uF1C9",
+      "5": "\uF075",
+      "6": "\uf249",
+      "10": "",
+      "default": ""
+    }
+  },
+  "custom/weather": {
+    "exec": "~/.scripts/weather.py",
+    "format": "{}",
+    "tooltip": true,
+    "return-type": "json",
+    "interval": 3600
+  },
+  "custom/miniflux": {
+    "exec": "~/go/bin/miniflux --url https://miniflux.hoohoot.org --token 6aQYGv7zC83mLBQAqjWzt5mKLRsVwa0HH62NfdMww5k=",
+    "format": "{} \uf09e",
+    "tooltip": true,
+    "return-type": "json",
+    "interval": 300,
+    "on-click": "firefox-developer-edition https://miniflux.hoohoot.org"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "clock": {
+    "format": "{:%d %B \uF017 %H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip": true,
+    "interval": 15
+  },
+  "cpu": {
+    "format": "{usage}% "
+  },
+  "memory": {
+    "format": "{}% "
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{free} \uF1C0",
+    "path": "/"
+  },
+  "temperature#cpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "interval": 5,
+    "critical-threshold": 90,
+    "format": "{temperatureC}°C "
+  },
+  "temperature#gpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp2_input",
+    "interval": 5,
+    "critical-threshold": 90,
+    "format": "{temperatureC}°C "
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "interface": "eno1",
+    "format": "{bandwidthDownBytes} \uF063 {bandwidthUpBytes} \uF062",
+    "format-disconnected": "",
+    "interval": 10,
+    "max-length": 50
+  },
+  "custom/updates": {
+    "format": "{}",
+    "interval": 600,
+    "exec": "~/.scripts/updates-arch.sh",
+    "tooltip": false
+  },
+  "custom/notification": {
+    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/gnma": {
+    "format": " {} ",
+    "interval": 5,
+    "exec": "gnome-next-meeting-applet dbus get_event",
+    "exec-if": "pgrep -f gnome-next-meeting-applet",
+    "max-length": 50,
+    "min-length": 1,
+    "on-click": "gnome-next-meeting-applet dbus open_event_url"
+  },
+  "custom/pomodoro": {
+    "interval": 1,
+    "exec": "pomo status"
+  }
+}

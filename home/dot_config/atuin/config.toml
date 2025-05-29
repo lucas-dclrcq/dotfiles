@@ -1,0 +1,4 @@
+sync_address = "https://sh.hoohoot.org"
+sync_frequency = "30s"
+filter_mode = "global"
+enter_accept = true

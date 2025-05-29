@@ -1,0 +1,4 @@
+MOB_TIMER="15"
+MOB_VOICE_MESSAGE="mob next"
+MOB_WIP_COMMIT_MESSAGE="chore: end of Lucas's turn"
+MOB_START_COMMIT_MESSAGE="chore: start mob session"
