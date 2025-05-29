@@ -3,3 +3,4 @@ fisher
 starship
 kubectl
 kubecolor
+bat

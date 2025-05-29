@@ -16,7 +16,7 @@ antigen bundle atuinsh/atuin@main
 antigen apply
 
 # ENVIRONMENT
-export EDITOR='nvim'
+export EDITOR='nvim'<
 export VISUAL='nvim'
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.scripts

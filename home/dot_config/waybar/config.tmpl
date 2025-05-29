@@ -48,12 +48,12 @@
     "interval": 3600
   },
   "custom/miniflux": {
-    "exec": "~/go/bin/miniflux --url https://miniflux.hoohoot.org --token {{ (vault "perso/common").data.data.miniflux_token }}=",
+    "exec": "~/go/bin/miniflux --url {{ (vault "perso/common").data.data.miniflux_url }} --token {{ (vault "perso/common").data.data.miniflux_token }}",
     "format": "{} \uf09e",
     "tooltip": true,
     "return-type": "json",
     "interval": 300,
-    "on-click": "firefox-developer-edition https://miniflux.hoohoot.org"
+    "on-click": "firefox-developer-edition {{ (vault "perso/common").data.data.miniflux_url }}"
   },
   "idle_inhibitor": {
     "format": "{icon}",
