@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "linux" }}
+{{- $packages := splitList " " (includeTemplate "archlinux/packages" .) }}
+
+#yay -Sy --noconfirm --needed {{ $packages | sortAlpha | uniq | join " " -}}
+{{ end }}

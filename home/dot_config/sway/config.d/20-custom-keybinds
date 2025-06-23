@@ -26,16 +26,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # take cropped screenshot
-bindsym Shift+Print exec ~/.scripts/screenshot.sh cropped
+bindsym Shift+Print exec ~/.local/bin/screenshot.sh cropped
 
 # take focused window screenshot
-bindsym Print exec ~/.dotfiles/scripts/screenshot.sh fullscreen
+bindsym Print exec ~/.local/bin/screenshot.sh fullscreen
 
 # Lock screen
-bindsym $mod+l exec ~/.scripts/lockscreen.sh
+bindsym $mod+l exec ~/.local/bin/lockscreen.sh
 
 # Do updates
-bindsym $mod+x+p exec ~/.scripts/do-updates.sh
+bindsym $mod+x+p exec ~/.local/bin/do-updates.sh
 
 # toggle notification control center
 bindsym $mod+Shift+n exec swaync-client -t -sw

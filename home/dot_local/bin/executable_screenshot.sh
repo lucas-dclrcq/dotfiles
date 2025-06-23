@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 BASE_PATH=/home/lucas/Pictures/Screenshots

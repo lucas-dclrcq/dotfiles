@@ -9,3 +9,5 @@ set -gx GOPATH $HOME/go
 
 fish_add_path --global --prepend $HOME/.scripts
 fish_add_path --global --prepend $HOME/go/bin
+fish_add_path --global --prepend $HOME/.npm-packages/bin
+fish_add_path --global --prepend $HOME/.cargo/bin

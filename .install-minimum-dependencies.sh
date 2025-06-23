@@ -8,7 +8,9 @@ Darwin)
     brew install vault-cli vault
     ;;
 Linux)
-    sudo pacman -S vault
+    sudo pacman -S git base-devel vault
+    type yay >/dev/null 2>&1 && exit
+    git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
     ;;
 *)
     echo "unsupported OS"

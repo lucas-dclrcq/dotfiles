@@ -120,11 +120,29 @@ focus_follows_mouse yes
 exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# Outputs
+
+set $left HDMI-A-1
+set $right DP-1
+
+output $left pos 0 0 res 2560x1440
+output $right pos 2560 0 res 2560x1440
+
+workspace $ws1 output $left
+workspace $ws2 output $left
+workspace $ws3 output $left
+workspace $ws4 output $right
+workspace $ws5 output $left
+workspace $ws6 output $right
+workspace $ws7 output $left
+workspace $ws8 output $left
+workspace $ws9 output $left
+workspace $ws10 output $left
+
 output * bg ~/.dots/assets/wallpapers/lake.jpg fill
 
 ### Additional config
 # Additional configuration options can be grouped in files and put in the following directories.
 # The files matching the selector will be parsed after the main config.
 # NOTE: The config is parsed top to bottom.
-
 include ~/.config/sway/config.d/*
